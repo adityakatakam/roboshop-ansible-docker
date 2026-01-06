@@ -14,3 +14,4 @@
     env:
       MONGO: "true"
       MONGO_URL: "mongodb://mongodb-dev.adityadevops.online:27017/catalogue"
+      #
