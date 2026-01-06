@@ -1,0 +1,22 @@
+- name: Install Docker
+  ansible.builtin.import_role:
+    name: common
+    tasks_from: docker
+
+- name: Start a container
+  community.docker.docker_container:
+    name: payment
+    image: public.ecr.aws/w8x4g9h7/roboshop-v3/payment
+    state: started
+    restart: true
+    ports:
+      - "8080:8080"
+    env:
+      CART_HOST: cart-dev.adityadevops.online
+      CART_PORT: "8080"
+      USER_HOST: user-dev.adityadevops.online
+      USER_PORT: "8080"
+      AMQP_HOST: rabbitmq-dev.adityadevops.online
+      AMQP_USER: roboshop
+      AMQP_PASS: roboshop123
+
