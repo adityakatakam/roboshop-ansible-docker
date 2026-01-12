@@ -3,9 +3,4 @@
   become: true
   roles:
     - "{{ component }}"
-
-
-
-
-
 #
